@@ -145,5 +145,23 @@ namespace Employee_CRUD
 
 
         }
+
+        protected void btnSearch_Click1(object sender, EventArgs e)
+        {
+
+            con.Open();
+            string SqlQuery = $"select * from employee where emp_name like '{txtSearch.Text}%'";
+            SqlCommand cmd = new SqlCommand(SqlQuery, con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            sda.Fill(dt);
+
+            con.Close();
+            // binding with Grid View
+            GridViewEmp.DataSource = dt;
+            GridViewEmp.DataBind();
+
+        }
     }
 }

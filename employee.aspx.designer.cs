@@ -33,24 +33,6 @@ namespace Employee_CRUD
         protected global::System.Web.UI.WebControls.TextBox txtempname;
 
         /// <summary>
-        /// rfvname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvname;
-
-        /// <summary>
-        /// revname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revname;
-
-        /// <summary>
         /// txtempage control.
         /// </summary>
         /// <remarks>
@@ -58,24 +40,6 @@ namespace Employee_CRUD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtempage;
-
-        /// <summary>
-        /// rfvage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvage;
-
-        /// <summary>
-        /// rvage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvage;
 
         /// <summary>
         /// txtempmail control.
@@ -87,24 +51,6 @@ namespace Employee_CRUD
         protected global::System.Web.UI.WebControls.TextBox txtempmail;
 
         /// <summary>
-        /// rfvemail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvemail;
-
-        /// <summary>
-        /// revemail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revemail;
-
-        /// <summary>
         /// txtemppass control.
         /// </summary>
         /// <remarks>
@@ -112,24 +58,6 @@ namespace Employee_CRUD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtemppass;
-
-        /// <summary>
-        /// rfvpass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvpass;
-
-        /// <summary>
-        /// revpass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revpass;
 
         /// <summary>
         /// txtempphone control.
@@ -141,33 +69,6 @@ namespace Employee_CRUD
         protected global::System.Web.UI.WebControls.TextBox txtempphone;
 
         /// <summary>
-        /// rfvphone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvphone;
-
-        /// <summary>
-        /// revphone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revphone;
-
-        /// <summary>
-        /// popup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary popup;
-
-        /// <summary>
         /// btnsubmit control.
         /// </summary>
         /// <remarks>
@@ -175,6 +76,24 @@ namespace Employee_CRUD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnsubmit;
+
+        /// <summary>
+        /// txtSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+
+        /// <summary>
+        /// btnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
         /// GridViewEmp control.

@@ -29,7 +29,7 @@
                         <tr>
                             <td>Employee Name:</td>
                             <td><asp:TextBox ID="txtempname" runat="server"></asp:TextBox></td>
-                            <asp:RequiredFieldValidator ID="rfvname" runat="server" ControlToValidate="txtempname" ErrorMessage="Name Should Be Entered" Display="None" ValidationGroup="EmployeeForm"></asp:RequiredFieldValidator>
+                           <%-- <asp:RequiredFieldValidator ID="rfvname" runat="server" ControlToValidate="txtempname" ErrorMessage="Name Should Be Entered" Display="None" ValidationGroup="EmployeeForm"></asp:RequiredFieldValidator>
 
                             <asp:RegularExpressionValidator
                                 ID="revname"
@@ -39,13 +39,13 @@
                                 ErrorMessage="Name Should Be Only AlphaBet"
                                 Display="None"
                                 ValidationExpression="^[a-zA-Z]+$"
-                            ></asp:RegularExpressionValidator>
+                            ></asp:RegularExpressionValidator>--%>
                         </tr>
 
                         <tr>
                             <td>Employee Age:</td>
                             <td><asp:TextBox ID="txtempage" runat="server"></asp:TextBox></td>
-                            <asp:RequiredFieldValidator ID="rfvage" runat="server" ControlToValidate="txtempage" ErrorMessage="Age Should Be Entered" Display="None" ValidationGroup="EmployeeForm"></asp:RequiredFieldValidator>
+                          <%--  <asp:RequiredFieldValidator ID="rfvage" runat="server" ControlToValidate="txtempage" ErrorMessage="Age Should Be Entered" Display="None" ValidationGroup="EmployeeForm"></asp:RequiredFieldValidator>--%>
 
                             <%--
                             <asp:CompareValidator
@@ -61,7 +61,7 @@
                             ></asp:CompareValidator>
                             --%>
 
-                            <asp:RangeValidator
+                          <%--  <asp:RangeValidator
                                 ID="rvage"
                                 runat="server"
                                 ControlToValidate="txtempage"
@@ -71,13 +71,13 @@
                                 MinimumValue="18"
                                 MaximumValue="100"
                                 Type="Integer"
-                            ></asp:RangeValidator>
+                            ></asp:RangeValidator>--%>
                         </tr>
 
                         <tr>
                             <td>Employee Email ID:</td>
                             <td><asp:TextBox ID="txtempmail" runat="server"></asp:TextBox></td>
-                            <asp:RequiredFieldValidator ID="rfvemail" runat="server" ControlToValidate="txtempmail" ErrorMessage="Email Should Be Entered" Display="None" ValidationGroup="EmployeeForm"></asp:RequiredFieldValidator>
+                           <%-- <asp:RequiredFieldValidator ID="rfvemail" runat="server" ControlToValidate="txtempmail" ErrorMessage="Email Should Be Entered" Display="None" ValidationGroup="EmployeeForm"></asp:RequiredFieldValidator>
 
                             <asp:RegularExpressionValidator
                                 ID="revemail"
@@ -87,13 +87,13 @@
                                 ErrorMessage="Mail Should Be in proper @ format"
                                 Display="None"
                                 ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                            ></asp:RegularExpressionValidator>
+                            ></asp:RegularExpressionValidator>--%>
                         </tr>
 
                         <tr>
                             <td>Employee Password:</td>
                             <td><asp:TextBox ID="txtemppass" runat="server" TextMode="Password"></asp:TextBox></td>
-                            <asp:RequiredFieldValidator ID="rfvpass" runat="server" ControlToValidate="txtemppass" ErrorMessage="Password should be entered" Display="None" ValidationGroup="EmployeeForm"></asp:RequiredFieldValidator>
+                            <%--<asp:RequiredFieldValidator ID="rfvpass" runat="server" ControlToValidate="txtemppass" ErrorMessage="Password should be entered" Display="None" ValidationGroup="EmployeeForm"></asp:RequiredFieldValidator>
 
                             <asp:RegularExpressionValidator
                                 ID="revpass"
@@ -103,13 +103,13 @@
                                 ErrorMessage="Password at least 8 to 20 characters  with 1 Upper case 1 lowercase 1 special character"
                                 Display="None"
                                 ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=\-{}\[\]:;,.?]).{8,20}$"
-                            ></asp:RegularExpressionValidator>
+                            ></asp:RegularExpressionValidator>--%>
                         </tr>
 
                         <tr>
                             <td>Employee Phone:</td>
                             <td><asp:TextBox ID="txtempphone" runat="server"></asp:TextBox></td>
-                            <asp:RequiredFieldValidator ID="rfvphone" runat="server" ControlToValidate="txtempphone" ErrorMessage="Phone Should Be Entered" Display="None" ValidationGroup="EmployeeForm"></asp:RequiredFieldValidator>
+                           <%-- <asp:RequiredFieldValidator ID="rfvphone" runat="server" ControlToValidate="txtempphone" ErrorMessage="Phone Should Be Entered" Display="None" ValidationGroup="EmployeeForm"></asp:RequiredFieldValidator>
 
                             <asp:RegularExpressionValidator
                                 ID="revphone"
@@ -119,17 +119,26 @@
                                 ErrorMessage="Phone Should be 10 digit number"
                                 Display="None"
                                 ValidationExpression="^\d{10}$"
-                            ></asp:RegularExpressionValidator>
+                            ></asp:RegularExpressionValidator>--%>
                         </tr>
 
                         <%--for POPUP--%>
 
-                        <asp:ValidationSummary ID="popup" runat="server" ShowMessageBox="true" ShowSummary="false" ValidationGroup="EmployeeForm" />
+                      <%--  <asp:ValidationSummary ID="popup" runat="server" ShowMessageBox="true" ShowSummary="false" ValidationGroup="EmployeeForm" />--%>
 
                         <tr>
                             <td>Submit:</td>
-                            <td><asp:Button ID="btnsubmit" runat="server" Text="Save" OnClick="btnsubmit_Click" ValidationGroup="EmployeeForm" /></td>
+                           <%-- <td><asp:Button ID="btnsubmit" runat="server" Text="Save" OnClick="btnsubmit_Click" ValidationGroup="EmployeeForm" /></td> --%>
+                            <td><asp:Button ID="btnsubmit" runat="server" Text="Save" OnClick="btnsubmit_Click"/></td>
                         </tr>
+
+                        <tr>
+                            <td>Search:</td>
+                            <td><asp:TextBox ID="txtSearch" runat="server"></asp:TextBox></td>
+                            <td><asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click1"/></td>
+                        </tr>
+
+
                     </table>
 
                     <h1 style="text-align: center;">Employee Data Table</h1>
