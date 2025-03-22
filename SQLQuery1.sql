@@ -3,67 +3,47 @@ use employee_126;
 select * from employee;
 
 
-/*User Insert*/
-create procedure User_insert
-@name varchar(50),
-@email varchar(50),
-@pass varchar(50),
-@phone varchar(20),
-@age int
+
+
+
+
+
+/* With Single Procedure*/
+create procedure EMPLOYEE_PROCEDURE
+@action varchar(30)=null,
+@name varchar(50)=null,
+@email varchar(50)=null,
+@pass varchar(50)=null,
+@phone varchar(20)=null,
+@age int=0,
+@command_argument int=0
 as
 begin
-insert into employee(emp_name, emp_email, emp_pass, emp_phone, emp_age)
-values (@name, @email, @pass, @phone, @age);
+	if(@action='showData')
+		begin
+			select * from employee;
+		end
+	else if(@action='insertData')
+		begin
+			insert into employee(emp_name, emp_email, emp_pass, emp_phone, emp_age)
+			values (@name, @email, @pass, @phone, @age);
+		end
+	else if(@action='deleteData')
+		begin
+			delete from employee where emp_id=@command_argument;
+		end
+	else if(@action='editData')
+		begin
+			select * from employee where emp_id=@command_argument
+		end
+	else if(@action='updateData')
+		begin
+			update employee set emp_name=@name,emp_email=@email, emp_pass=@pass, emp_phone=@phone, emp_age=@age
+			where emp_id=@command_argument;
+		end
 end
 
 
-/*User Update*/
-create procedure user_update
-@name varchar(50),
-@email varchar(50),
-@pass varchar(50),
-@phone varchar(20),
-@age int,
-@command_argument int
-as
-begin
-update employee set emp_name=@name,emp_email=@email, emp_pass=@pass, emp_phone=@phone, emp_age=@age
-where emp_id=@command_argument;
-end
-
-
-/*User Shown*/
-create procedure User_Show
-as
-begin
-select * from employee;
-end
-
-
-/*User Delete*/
-create procedure User_delete
-@command_argument int
-as
-begin
-delete from employee where emp_id=@command_argument;
-end
-
-
-/*User Edit*/
-create procedure user_edit
-@command_argument int
-as
-begin
-select * from employee where emp_id=@command_argument
-end
-
-/*User Search*/
-create procedure user_search
-@name int
-as
-begin
-select * from employee where emp_name like '@name%';
-end
 
 
 
