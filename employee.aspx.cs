@@ -26,8 +26,12 @@ namespace Employee_CRUD
 		public void ShowData()
 		{
 			con.Open();
-			string SqlQuery = $"select * from employee";
-			SqlCommand cmd = new SqlCommand(SqlQuery, con);
+			//string SqlQuery = $"select * from employee";
+
+			//with sql procedure
+			string SqlQuery = "User_Show";
+
+            SqlCommand cmd = new SqlCommand(SqlQuery, con);
 			SqlDataAdapter sda = new SqlDataAdapter(cmd);
 			DataTable dt = new DataTable();
 
@@ -56,11 +60,20 @@ namespace Employee_CRUD
 
 			if (btnsubmit.Text == "Save")
 			{
+				// with Sql Query
+				//string SqlQuery = $"insert into employee(emp_name,emp_age,emp_email,emp_pass,emp_phone) values('{txtempname.Text}','{txtempage.Text}','{txtempmail.Text}','{txtemppass.Text}','{txtempphone.Text}')";
 
-				string SqlQuery = $"insert into employee(emp_name,emp_age,emp_email,emp_pass,emp_phone) values('{txtempname.Text}','{txtempage.Text}','{txtempmail.Text}','{txtemppass.Text}','{txtempphone.Text}')";
+				// with SQL Procedure
+				string SqlQuery = "User_insert";
 
-				con.Open();
+                con.Open();
 				SqlCommand cmd = new SqlCommand(SqlQuery, con);
+				cmd.CommandType = CommandType.StoredProcedure;
+				cmd.Parameters.AddWithValue("@name", txtempname.Text);
+				cmd.Parameters.AddWithValue("@email", txtempmail.Text);
+				cmd.Parameters.AddWithValue("@pass", txtemppass.Text);
+				cmd.Parameters.AddWithValue("@phone", txtempphone.Text);
+				cmd.Parameters.AddWithValue("@age", txtempage.Text);
 				cmd.ExecuteNonQuery();
 
 				con.Close();
@@ -76,12 +89,24 @@ namespace Employee_CRUD
 
 			else if (btnsubmit.Text == "Update")
 			{
+				// with SQL Query
+				//string SqlQuery = $"update employee set emp_name='{txtempname.Text}',emp_age='{txtempage.Text}', emp_email='{txtempmail.Text}', emp_pass='{txtemppass.Text}', emp_phone='{txtempphone.Text}' where emp_id={ViewState["Global"]}";
 
-				string SqlQuery = $"update employee set emp_name='{txtempname.Text}',emp_age='{txtempage.Text}', emp_email='{txtempmail.Text}', emp_pass='{txtemppass.Text}', emp_phone='{txtempphone.Text}' where emp_id={ViewState["Global"]}";
+				//SQL Procedure
+				string SqlQuery = "user_update";
 
-				con.Open();
+
+                con.Open();
 				SqlCommand cmd = new SqlCommand(SqlQuery, con);
-				cmd.ExecuteNonQuery();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@name", txtempname.Text);
+                cmd.Parameters.AddWithValue("@email", txtempmail.Text);
+                cmd.Parameters.AddWithValue("@pass", txtemppass.Text);
+                cmd.Parameters.AddWithValue("@phone", txtempphone.Text);
+                cmd.Parameters.AddWithValue("@age", txtempage.Text);
+                cmd.Parameters.AddWithValue("@command_argument", ViewState["Global"]);
+
+                cmd.ExecuteNonQuery();
 				con.Close();
 
 				//showdata after updation
@@ -102,11 +127,16 @@ namespace Employee_CRUD
         {
 			if(e.CommandName== "remove")
 			{
+				// with SQL Query
+				//string SqlQuery = $"delete from employee where emp_id='{e.CommandArgument}'";
 
-                string SqlQuery = $"delete from employee where emp_id='{e.CommandArgument}'";
-
+				// With SQL Procedure
+				string SqlQuery = "User_delete";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(SqlQuery, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@command_argument", e.CommandArgument);
+
                 cmd.ExecuteNonQuery();
 
 				con.Close();
@@ -116,11 +146,16 @@ namespace Employee_CRUD
 
 			else if (e.CommandName == "omit")
 			{
-                string SqlQuery = $"select * from employee where emp_id='{e.CommandArgument}'";
+                // with SQL Query
+                //string SqlQuery = $"select * from employee where emp_id='{e.CommandArgument}'";
 
+                // With SQL Procedure
+                string SqlQuery = "user_edit";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(SqlQuery, con);
-				SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@command_argument", e.CommandArgument);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable();
 				sda.Fill(dt);
 				con.Close();
@@ -148,9 +183,11 @@ namespace Employee_CRUD
 
         protected void btnSearch_Click1(object sender, EventArgs e)
         {
+			//with SQL Query
+            string SqlQuery = $"select * from employee where emp_name like '{txtSearch.Text}%'";
+
 
             con.Open();
-            string SqlQuery = $"select * from employee where emp_name like '{txtSearch.Text}%'";
             SqlCommand cmd = new SqlCommand(SqlQuery, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();

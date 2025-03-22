@@ -21,6 +21,7 @@
                     <table border="2">
                         <%--
                         <tr>
+
                             <td>Employee ID:</td>
                             <td><asp:TextBox ID="txtempid" runat="server"></asp:TextBox></td>
                         </tr>
